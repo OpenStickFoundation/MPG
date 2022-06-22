@@ -167,6 +167,24 @@ inline uint8_t runSOCDCleaner(SOCDMode mode, uint8_t dpad)
 			}
 			else if (mode == SOCD_MODE_SECOND_INPUT_PRIORITY && lastUD != DIRECTION_NONE)
 				newDpad |= (lastUD == DIRECTION_UP) ? GAMEPAD_MASK_DOWN : GAMEPAD_MASK_UP;
+			else if (mode == SOCD_MODE_X_NEUTRAL_Y_UP || mode == SOCD_MODE_X_LEFT_Y_UP || mode == SOCD_MODE_X_RIGHT_Y_UP || mode == SOCD_MODE_X_LIP_Y_UP)
+			{
+				newDpad |= GAMEPAD_MASK_UP;
+				lastUD = DIRECTION_UP;
+			}
+			else if (mode == SOCD_MODE_X_NEUTRAL_Y_DOWN || mode == SOCD_MODE_X_LEFT_Y_DOWN || mode == SOCD_MODE_X_RIGHT_Y_DOWN || mode == SOCD_MODE_X_LIP_Y_DOWN)
+			{
+				newDpad |= GAMEPAD_MASK_DOWN;
+				lastUD = DIRECTION_DOWN;
+			}
+			else if (mode == SOCD_MODE_X_NEUTRAL_Y_NEUTRAL)
+				lastUD = DIRECTION_NONE;
+			else if (mode == SOCD_MODE_X_NEUTRAL_Y_NEUTRAL || mode == SOCD_MODE_X_LEFT_Y_NEUTRAL || mode == SOCD_MODE_X_RIGHT_Y_NEUTRAL || mode == SOCD_MODE_X_LIP_Y_NEUTRAL)
+				lastUD = DIRECTION_NONE;
+			else if (mode == SOCD_MODE_X_NEUTRAL_Y_LIP || mode == SOCD_MODE_X_LEFT_Y_LIP || mode == SOCD_MODE_X_RIGHT_Y_LIP || mode == SOCD_MODE_X_LIP_Y_LIP && lastUD != DIRECTION_NONE)
+				newDpad |= (lastUD == DIRECTION_UP) ? GAMEPAD_MASK_DOWN : GAMEPAD_MASK_UP;
+			else if (mode == SOCD_MODE_X_NEUTRAL_Y_FIP || mode == SOCD_MODE_X_LEFT_Y_FIP || mode == SOCD_MODE_X_RIGHT_Y_FIP || mode == SOCD_MODE_X_LIP_Y_FIP || mode == SOCD_MODE_X_FIP_Y_FIP && lastUD != DIRECTION_NONE)
+				newDpad |= (lastUD == DIRECTION_UP) ? GAMEPAD_MASK_UP : GAMEPAD_MASK_DOWN;
 			else
 				lastUD = DIRECTION_NONE;
 			break;
@@ -191,6 +209,22 @@ inline uint8_t runSOCDCleaner(SOCDMode mode, uint8_t dpad)
 		case (GAMEPAD_MASK_LEFT | GAMEPAD_MASK_RIGHT):
 			if (mode == SOCD_MODE_SECOND_INPUT_PRIORITY && lastLR != DIRECTION_NONE)
 				newDpad |= (lastLR == DIRECTION_LEFT) ? GAMEPAD_MASK_RIGHT : GAMEPAD_MASK_LEFT;
+			else if (mode == SOCD_MODE_X_LEFT_Y_NEUTRAL || mode == SOCD_MODE_X_LEFT_Y_DOWN || mode == SOCD_MODE_X_LEFT_Y_UP || mode == SOCD_MODE_X_LEFT_Y_LIP)
+			{
+				newDpad |= GAMEPAD_MASK_LEFT;
+				lastLR = DIRECTION_LEFT;
+			}
+			else if (mode == SOCD_MODE_X_RIGHT_Y_NEUTRAL || mode == SOCD_MODE_X_RIGHT_Y_DOWN || mode == SOCD_MODE_X_RIGHT_Y_UP || mode == SOCD_MODE_X_RIGHT_Y_LIP)
+			{
+				newDpad |= GAMEPAD_MASK_RIGHT;
+				lastLR = DIRECTION_RIGHT;
+			}
+			else if (mode == SOCD_MODE_X_NEUTRAL_Y_NEUTRAL || mode == SOCD_MODE_X_NEUTRAL_Y_DOWN || mode == SOCD_MODE_X_NEUTRAL_Y_UP || mode == SOCD_MODE_X_NEUTRAL_Y_LIP)
+				lastLR = DIRECTION_NONE;
+			else if (mode == SOCD_MODE_X_LIP_Y_NEUTRAL || mode == SOCD_MODE_X_LIP_Y_DOWN || mode == SOCD_MODE_X_LIP_Y_UP || mode == SOCD_MODE_X_LIP_Y_LIP && lastLR != DIRECTION_NONE)
+				newDpad |= (lastLR == DIRECTION_LEFT) ? GAMEPAD_MASK_RIGHT : GAMEPAD_MASK_LEFT;
+			else if (mode == SOCD_MODE_X_FIP_Y_NEUTRAL || mode == SOCD_MODE_X_FIP_Y_DOWN || mode == SOCD_MODE_X_FIP_Y_UP || mode == SOCD_MODE_X_FIP_Y_LIP || mode == SOCD_MODE_X_FIP_Y_FIP && lastLR != DIRECTION_NONE)
+				newDpad |= (lastLR == DIRECTION_LEFT) ? GAMEPAD_MASK_LEFT : GAMEPAD_MASK_RIGHT;
 			else
 				lastLR = DIRECTION_NONE;
 			break;
