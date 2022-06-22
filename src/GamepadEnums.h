@@ -27,10 +27,38 @@ typedef enum
 
 // The available SOCD cleaning methods
 typedef enum
-{
+{	
+	// Legacy SOCD Modes for compatability purposes
 	SOCD_MODE_UP_PRIORITY,           // U+D=U, L+R=N
 	SOCD_MODE_NEUTRAL,               // U+D=N, L+R=N
 	SOCD_MODE_SECOND_INPUT_PRIORITY, // U>D=D, L>R=R (Last Input Priority, aka Last Win)
+
+	// Comprehensive SOCD Modes (LIP = Last Input Priority / FIP = First Input Priority)
+	SOCD_MODE_X_NEUTRAL_Y_NEUTRAL,   // L+R=N, U+D=N
+	SOCD_MODE_X_NEUTRAL_Y_DOWN,      // L+R=N, U+D=D
+	SOCD_MODE_X_NEUTRAL_Y_UP,        // L+R=N, U+D=U
+	SOCD_MODE_X_NEUTRAL_Y_LIP,       // L+R=N, U+D=LIP
+	SOCD_MODE_X_NEUTRAL_Y_FIP,       // L+R=N, U+D=FIP
+	SOCD_MODE_X_LEFT_Y_NEUTRAL,      // L+R=L, U+D=N
+	SOCD_MODE_X_LEFT_Y_DOWN,         // L+R=L, U+D=D
+	SOCD_MODE_X_LEFT_Y_UP,           // L+R=L, U+D=U
+	SOCD_MODE_X_LEFT_Y_LIP,          // L+R=L, U+D=LIP
+	SOCD_MODE_X_LEFT_Y_FIP,          // L+R=L, U+D=FIP
+	SOCD_MODE_X_RIGHT_Y_NEUTRAL,     // L+R=R, U+D=N
+	SOCD_MODE_X_RIGHT_Y_DOWN,        // L+R=R, U+D=D
+	SOCD_MODE_X_RIGHT_Y_UP,          // L+R=R, U+D=U
+	SOCD_MODE_X_RIGHT_Y_LIP,         // L+R=R, U+D=LIP
+	SOCD_MODE_X_RIGHT_Y_FIP,         // L+R=R, U+D=FIP
+	SOCD_MODE_X_LIP_Y_NEUTRAL,       // L+R=LIP, U+D=N
+	SOCD_MODE_X_LIP_Y_DOWN,          // L+R=LIP, U+D=D
+	SOCD_MODE_X_LIP_Y_UP,            // L+R=LIP, U+D=U
+	SOCD_MODE_X_LIP_Y_LIP,           // L+R=LIP, U+D=LIP
+	SOCD_MODE_X_LIP_Y_FIP,           // L+R=LIP, U+D=FIP
+	SOCD_MODE_X_FIP_Y_NEUTRAL,       // L+R=FIP, U+D=N
+	SOCD_MODE_X_FIP_Y_DOWN,          // L+R=FIP, U+D=D
+	SOCD_MODE_X_FIP_Y_UP,            // L+R=FIP, U+D=U
+	SOCD_MODE_X_FIP_Y_LIP,           // L+R=FIP, U+D=LIP
+	SOCD_MODE_X_FIP_Y_FIP,           // L+R=FIP, U+D=FIP
 } SOCDMode;
 
 // Enum for tracking last direction state of Second Input SOCD method
