@@ -131,6 +131,13 @@ class MPG
 		XInputReport *getXInputReport();
 
 		/**
+		 * @brief Generate USB report for MD-mini 6B Pad mode.
+		 *
+		 * @return MdminiReport MDmini report pointer.
+		 */
+		MdminiReport *getMdminiReport();
+
+		/**
 		 * @brief Check for a button press. Used by `pressed[Button]` helper methods.
 		 */
 		inline bool __attribute__((always_inline)) pressedButton(const uint16_t mask) { return (state.buttons & mask) == mask; }

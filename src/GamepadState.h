@@ -13,24 +13,24 @@
 /*
 	Gamepad button mapping table:
 
-	+--------+--------+---------+----------+----------+--------+
-	| MPG    | XInput | Switch  | PS3      | DInput   | Arcade |
-	+--------+--------+---------+----------|----------+--------+
-	| B1     | A      | B       | Cross    | 2        | K1     |
-	| B2     | B      | A       | Circle   | 3        | K2     |
-	| B3     | X      | Y       | Square   | 1        | P1     |
-	| B4     | Y      | X       | Triangle | 4        | P2     |
-	| L1     | LB     | L       | L1       | 5        | P4     |
-	| R1     | RB     | R       | R1       | 6        | P3     |
-	| L2     | LT     | ZL      | L2       | 7        | K4     |
-	| R2     | RT     | ZR      | R2       | 8        | K3     |
-	| S1     | Back   | -       | Select   | 9        | Coin   |
-	| S2     | Start  | +       | Start    | 10       | Start  |
-	| L3     | LS     | LS      | L3       | 11       | LS     |
-	| R3     | RS     | RS      | R3       | 12       | RS     |
-	| A1     | Guide  | Home    | -        | 13       | -      |
-	| A2     | -      | Capture | -        | 14       | -      |
-	+--------+--------+---------+----------+----------+--------+
+	+--------+--------+---------+----------+---------+----------+--------+
+	| MPG    | XInput | Switch  | PS3      | MD-MINI | DInput   | Arcade |
+	+--------+--------+---------+----------|---------|----------+--------+
+	| B1     | A      | B       | Cross    | A       | 2        | K1     |
+	| B2     | B      | A       | Circle   | B       | 3        | K2     |
+	| B3     | X      | Y       | Square   | X       | 1        | P1     |
+	| B4     | Y      | X       | Triangle | Y       | 4        | P2     |
+	| L1     | LB     | L       | L1       | -       | 5        | P4     |
+	| R1     | RB     | R       | R1       | Z       | 6        | P3     |
+	| L2     | LT     | ZL      | L2       | -       | 7        | K4     |
+	| R2     | RT     | ZR      | R2       | C       | 8        | K3     |
+	| S1     | Back   | -       | Select   | Mode    | 9        | Coin   |
+	| S2     | Start  | +       | Start    | Start   | 10       | Start  |
+	| L3     | LS     | LS      | L3       | -       | 11       | LS     |
+	| R3     | RS     | RS      | R3       | -       | 12       | RS     |
+	| A1     | Guide  | Home    | -        | -       | 13       | -      |
+	| A2     | -      | Capture | -        | -       | 14       | -      |
+	+--------+--------+---------+----------+---------|----------+--------+
 */
 
 #define GAMEPAD_MASK_UP    (1U << 0)
