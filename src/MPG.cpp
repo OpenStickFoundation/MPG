@@ -215,7 +215,7 @@ XInputReport *MPG::getXInputReport()
 	return &xinputReport;
 }
 
-MdminiReport MPG::getMdminiReport()
+MdminiReport *MPG::getMdminiReport()
 {
 	if (pressedLeft()) { mdminiReport.hat1 = MDMINI_MASK_LEFT; }
 	if (pressedRight()) { mdminiReport.hat1 = MDMINI_MASK_RIGHT; }
